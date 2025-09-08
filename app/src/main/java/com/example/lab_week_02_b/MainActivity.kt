@@ -11,11 +11,10 @@ import com.google.android.material.textfield.TextInputEditText
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val COLOR_KEY = "COLOR_KEY"
-        private const val ERROR_KEY = "ERROR_KEY"
+        const val COLOR_KEY = "COLOR_KEY"
+        const val ERROR_KEY = "ERROR_KEY"
     }
 
-    // Register Activity Result untuk menangani hasil dari ResultActivity
     private val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { activityResult ->
@@ -51,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     val resultIntent = Intent(this, ResultActivity::class.java)
                     resultIntent.putExtra(COLOR_KEY, colorCode)
-                    // Gunakan startForResult agar bisa menangani error dari ResultActivity
                     startForResult.launch(resultIntent)
                 }
             } else {
